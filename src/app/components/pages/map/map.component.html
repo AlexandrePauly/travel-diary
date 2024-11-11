@@ -1,0 +1,88 @@
+<!-- Page des voyages -->
+<div id="page-container">
+    <div id="map-container">
+        <!-- Map -->
+        <dx-map
+            #map
+            height="100%"
+            width="100%"
+            center="40.7061, -73.9969"
+            [controls]="true"
+            provider="bing"
+            type="hybrid"
+        >
+        </dx-map> 
+    
+        <!-- Options pour la map -->
+        <div class="options">
+            <div class="caption">Options</div>
+    
+            <div class="option">
+                <span>{{languageService.activedLanguage() === 'fr' ? 'Type de carte': 'Map type'}}</span>
+                <dx-select-box
+                    [dataSource]="mapTypes"
+                    displayExpr="name"
+                    valueExpr="key"
+                    [inputAttr]="{ 'aria-label': 'Map Type' }"
+                    [(value)]="map.type"
+                >
+                </dx-select-box>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liste des voyages -->
+    <div id="travel-list-container">
+        <!-- Haut de la section liste des voyages -->
+        <header>
+            <div id="header-content">
+                <!-- Bouton du compte utilisateur de l'application -->
+                <i *ngIf="logService.isConnected() === 'false'" (click)="showPopupService.showPopup()" class="fa fa-user-circle-o account-btn" aria-hidden="true"></i>
+                <img src="../../../../assets/img/pngwing.com.png" alt="">
+                <h1>Alexandre PAULY</h1>
+                <p>Pau, France</p>
+            </div>
+        </header>
+
+        <!-- Contenu de la section liste des voyages -->
+        <main>
+            <div *ngFor="let elt of travels" class="travel" (click)="goOnTravel(elt.link)">
+                <div class="travel-content">
+                    <!-- Image du voyage -->
+                    <div class="travel-img" style="background-image: url({{elt.background}})"></div>
+
+                    <!-- Informations du voyage -->
+                    <div class="travel-infos">
+                        <!-- Destination du voyage -->
+                        <div class="travel-infos-desc">
+                            <h1>{{ elt.title }}</h1>
+                            <p>{{ elt.desc }}</p>
+                        </div>
+                        <div class="travel-infos-dates">
+                            <!-- Date de début du voyage -->
+                            <div>
+                                <h6>{{ elt.startDate | date:'yyyy' }}</h6>
+                                <p>{{ elt.startDate | date:'MMMM' }}</p>
+                            </div>
+
+                            <!-- Durée du voyage -->
+                            <div>
+                                <p>&nbsp;</p>
+                                <p>{{ calculateDateDifference(elt.startDate, elt.endDate) }} jours</p>
+                            </div>
+
+                            <!--  -->
+                            <div>
+                                <p>&nbsp;</p>
+                                <p>20 km</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Menu de la page -->
+<app-menu></app-menu>

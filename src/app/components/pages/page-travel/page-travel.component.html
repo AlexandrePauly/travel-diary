@@ -1,0 +1,111 @@
+<!-- Menu du header -->
+<app-header></app-header>
+
+<!-- Header de la page de voyage -->
+<header id="header-travel">
+    <div id="header-travel-info">
+        <!-- Dates du voyage -->
+        <button id="header-travel-date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <p>{{ startDate }} - {{ endDate }}</p>
+        </button>
+
+         <!-- Destination et description du voyage -->
+        <div id="header-travel-text">
+            <h1>{{ dataTravel.title }}</h1>
+            <h4>{{ dataTravel.desc }}</h4>
+        </div>
+    </div>
+
+    <!-- Conteneur de boutons -->
+    <div id="btn-container">
+        <!-- Bouton pour lancer un caroussel d'images -->
+        <button id="btn-lets-go" (click)="showCaroussel(dataTravel.caroussel)">
+            <!-- icon du bouton -->
+            <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <!-- Texte du bouton -->
+            <span class="button-text">Let's Go</span>
+        </button>
+        
+        <!-- Bouton pour accéder à la map -->
+        <i id="btn-map" class="fa fa-map-o" aria-hidden="true" routerLink="/map" routerLinkActive="active"></i>
+    </div>
+</header>
+
+<!-- Contenu de la page de voyage -->
+<main id="content-travel">
+    <!-- Partie gauche du contenu - Menu -->
+    <nav id="content-travel-left-col">
+        <div *ngFor="let travel of dataTravel.tab, let i = index" class="elt-travel" [class.actived]="activeTab === travel.title" (click)="changeMenu(travel.title, true, i)">
+            <p *ngIf="i <= 8; else indexTab">0{{ i + 1 }}.</p>
+            <ng-template #indexTab>
+              <p>{{ i + 1 }}.</p>
+            </ng-template>            
+            <h4>{{ travel.title }}</h4>
+        </div>
+    </nav>
+
+    <!-- Partie droite du contenu - Tableau du contenu -->
+    <aside id="content-travel-right-col">
+        <div class="tab-info-travel" [class]="'tab-info-travel-' + (i + 1)" *ngFor="let travel of dataTravel.tab, let i = index">
+            <!-- Header du tableau -->
+            <header class="tab-header">
+                <ul>
+                    <li><a [class.actived]="activeMenu === 'Overview'" (click)="changeMenu('Overview', false, i)">Overview</a></li>
+                    <li><a [class.actived]="activeMenu === 'Gallery'" (click)="changeMenu('Gallery', false, i)">Gallery</a></li>
+                    <li><a [class.actived]="activeMenu === 'Maps'" (click)="changeMenu('Maps', false, i)">Maps</a></li>
+                </ul>
+            </header>
+
+            <!-- Contenu du tableau -->
+            <main class="tab-content">
+                <!-- Contenu de l'onglet Overview -->
+                <div class="tab-content-slider elt1">
+                    <h2 class="h2-content">{{ travel.overviewTitle }}</h2>
+                    <p class="p-content">{{ travel.overviewDesc }}</p>
+                </div>
+
+                <!-- Contenu de l'onglet Gallery -->
+                <div class="tab-content-slider elt2">
+                    <h2 class="h2-content">{{ travel.galleryTitle }}</h2>
+                    <div class="div-content" #divContentImg>
+                        <!-- <app-little-caroussel [caroussel]="travel.caroussel"></app-little-caroussel> -->
+                    </div>  
+                    <button class="button" (click)="showCaroussel(travel.caroussel)">
+                        <div class="button-overlay"></div>
+                        <span>Diaporama !
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 53 58" height="58" width="53">
+                                <path stroke-width="9" stroke="currentColor" d="M44.25 36.3612L17.25 51.9497C11.5833 55.2213 4.5 51.1318 4.50001 44.5885L4.50001 13.4115C4.50001 6.86824 11.5833 2.77868 17.25 6.05033L44.25 21.6388C49.9167 24.9104 49.9167 33.0896 44.25 36.3612Z"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Contenu de l'onglet Maps -->
+                <div class="tab-content-slider elt3">
+                    <h2 class="h2-content">{{ travel.mapsTitle }}</h2>
+                    <p class="p-content">{{ travel.mapsDesc }}</p>
+                </div>
+            </main>
+        </div>
+    </aside>
+</main>
+
+<!-- Fond d'écran de la page de voyage -->
+<div class="app_bg">
+    <div class="app_bg_image">
+        <!-- <app-background [caroussel]="dataTravel.background"></app-background> -->
+        <img src="../../../../assets/img/travel/travel3.jpg" alt="">
+    </div>
+</div>
+
+<!-- Caroussel des différents voyages -->
+<app-caroussel [style.display]="showCarousselService.isCarouselOpen() ? 'flex' : 'none'" [class]="carousselAnimation" class="caroussel" [caroussel]="carousselContent"></app-caroussel>
+
+<!-- Bouton pour fermer le caroussel lorsqu'il est affiché -->
+<a [style.display]="showCarousselService.isCarouselOpen() ? 'flex' : 'none'" [class]="carousselAnimation" class="close" (click)="showCaroussel(carousselContent)"></a>

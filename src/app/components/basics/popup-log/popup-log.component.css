@@ -1,0 +1,142 @@
+/* -- Popup pour gérer le compte -- */
+#popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    min-height: 50vh;
+    min-width: 50vh; 
+    border: 0.3vh solid black;
+    border-radius: 0.88vh;
+    font-family: 'poppins', sans-serif;
+    box-shadow: 0 0.7em 1em -0.5em black;
+    background-color: rgba(249, 249, 249, 0.8);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 20vh 1fr;
+}
+
+/* Header de la popup */
+#popup-header{
+    padding: 2vh 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../../../../assets/img/temp\ \(6\).jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Icon pour fermer la popup */
+#popup-header i {
+    position: absolute;
+    right: 1vh;
+    top: 1vh;
+    cursor: pointer;
+    transition: all 0.4s;
+    font-size: 3vh;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#popup-header i:hover {
+    transform: scale(1.2);
+}
+
+#popup-header i:active {
+    transform: scale(0.8);
+}
+
+/* Texte de la popup */
+#popup-header h1{
+    font-size: 5vh;
+    color: white;
+    margin: auto auto 0 0;
+}
+
+#popup-header h2{
+    font-size: 3vh;
+    color: white;
+    margin: 0 auto auto 0;
+    font-style: italic;
+}
+
+/* Contenu de la popup */
+#popup-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 4vh;
+    overflow: hidden;
+}
+
+/* Éléménts de gestion du compte */
+#popup-content ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+#popup-content ul{
+    width: calc(100% - 4vh);
+    padding: 2vh;
+}
+
+#popup-content li{
+    padding: 2vh;
+    margin-bottom: 0.5vh;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s;
+    font-size: 2.5vh;
+    border-bottom: 0.3vh solid rgba(0, 0, 0, 0.25);
+}
+
+#popup-content li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#popup-content li:active{
+    transform: scale(0.9);
+}
+
+#popup-content li:last-child{
+    margin-bottom: 0;
+}
+
+#popup-content ul li i{
+    margin-right: 1.5vh;
+    font-size: 3vh;
+}
+
+/* Fond d'écran de la popup */
+.popup-bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.popup-bg::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    background-color: black;
+    opacity: 0.4;
+}

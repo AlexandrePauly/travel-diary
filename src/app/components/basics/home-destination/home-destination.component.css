@@ -1,0 +1,74 @@
+.destination{
+    margin: 0 0 20px 20px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 40px;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0.7em 1em -0.5em black;
+    place-items: center;
+    position: relative;
+}
+
+.content-destination{
+    margin: 20px;
+    position: relative;
+}
+
+.content-destination h2{
+    font-family: Georgia, serif;
+}
+
+.content-destination p{
+    width: 50%;
+}
+
+.flag{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 20px;
+    /* border-radius: 50%; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+/* Bouton récupéré sur uiverse.io crée par suda-code (https://uiverse.io/suda-code/loud-badger-55) */
+.go-on {
+    display: flex;
+    margin-left: 10%;
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    -webkit-transition: all 0.5s;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.go-on:hover {
+    background: transparent;
+    box-shadow: 0 0.7em 1em -0.5em black;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.go-on:active {
+    background: transparent;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+.other-content{
+    display: flex;
+    justify-content: center;
+}

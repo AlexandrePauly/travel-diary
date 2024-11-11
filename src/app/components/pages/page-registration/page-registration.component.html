@@ -1,0 +1,73 @@
+<!-- Formulaire d'inscription -->
+<div id="bg-form-connexion">
+    <div class="form-box">
+        <div class="form-value">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                <h1>{{languageService.activedLanguage() === 'fr' ? 'Créer un compte': 'Join'}}</h1>
+
+                <!-- Nom de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container">
+                        <!-- <i class="fa fa-exclamation-circle" aria-hidden="true"></i> -->
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <input class="name" type="text" required>
+                    <label for=""><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{languageService.activedLanguage() === 'fr' ? 'Nom': 'Name'}}</label>
+                </div>
+
+                <!-- Email de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                    <input class="mail" type="email" required>
+                    <label for=""><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{languageService.activedLanguage() === 'fr' ? 'Adresse e-mail': 'E-mail address'}}</label>
+                </div>
+    
+                <!-- Mot de passe de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    <input class="password-1" type="password" required>
+                    <label for=""><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{languageService.activedLanguage() === 'fr' ? 'Mot de passe': 'Password'}}</label>
+                </div>
+
+                <!-- Vérifier le mot de passe de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    <input class="password-2" type="password" required>
+                    <label for=""><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{languageService.activedLanguage() === 'fr' ? 'Vérifier mot de passe': 'Verify password'}}</label>
+                </div>
+    
+                <!-- Boutton pour créer un compte -->
+                <button type="submit">{{languageService.activedLanguage() === 'fr' ? 'Créer un compte': 'Join'}}</button>
+
+                <!-- Se connecter -->
+                <div class="register">
+                    <a routerLink="/login" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Se connecter': 'Sign in'}}</a>
+                </div>
+    
+                <!-- Page d'accueil -->
+                <div class="register">
+                    <a routerLink="" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Page d\'accueil': 'Home'}}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Fond d'écran de la page de voyage -->
+<div class="app_bg">
+    <div class="app_bg_image">
+        <img src="" alt=""/>
+    </div> 
+</div>
+ 
+<!-- Loader de chargement -->
+<dx-load-panel
+  height="100vh"
+  width="100vw"
+  [message]="languageService.activedLanguage() === 'fr' ? 'Création du compte...': 'Account creation...'"
+  [visible]="loaderVisibility" 
+  [showIndicator]="true"
+  [showPane]="false"
+  [shading]="false"
+>
+</dx-load-panel>

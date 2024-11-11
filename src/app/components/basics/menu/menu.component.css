@@ -1,0 +1,96 @@
+/* -- Menu -- */
+
+#content-menu{
+    position: fixed;
+    bottom: 5.7vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 7vh;
+    width: 60vw;
+    box-shadow: 0 0.7em 1em -0.5em black;
+    border: 0.3vh solid black;
+    background-color: #6d8561;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    z-index: 10;
+    --font-family: "Gill Sans", sans-serif;
+    --font-size: 2.5vh;
+    --font-color: white;
+    --font-color-hover: rgba(255, 255, 255, 0.5);
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    transition: all 0.3s;
+}
+
+.menu a:hover{
+    color: var(--font-color-hover);
+}
+
+/* -- Menu - Partie gauche -- */
+
+.menu-left{
+    margin-right: 7vh;
+    width: calc(100% - 7vh);
+}
+
+/* -- Menu - Partie droite -- */
+
+.menu-right{
+    margin-left: 7vh;
+    width: calc(100% - 7vh);
+}
+
+/* -- Menu - Bouton central -- */
+
+.earth-btn-container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 14vh;
+    height: 14vh;
+    border-radius: 50%;
+    border: 0.3vh solid black;
+}
+
+.earth-btn {
+    width: 12.8vh;
+    height: 12.8vh;
+    border-radius: 50%;
+    background-image: url(../../../../assets/img/earth.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.earth-btn:hover{			
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.earth-btn:active{
+    transform: scale(0.95);
+}

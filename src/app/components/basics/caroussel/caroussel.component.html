@@ -1,0 +1,29 @@
+<!-- Carrousel -->
+<div id="bg-swiper">
+    <div id="swiper">
+        <!-- Contenu du caroussel -->
+        <swiper-container navigation="true" effect="coverflow" centered-slides="true" loop="false" slides-per-view="auto" speed="500">
+            <!-- Éléments du caroussel -->
+            <swiper-slide *ngFor="let elt of caroussel">
+                <!-- Image -->
+                <img [src]="elt.img" alt="">
+                
+                <!-- Texte associé à l'image -->
+                <div class="info-container">
+                    <div class="info">
+                        <h1 class="text name">{{ elt.destination }}</h1> 
+                        <h4 class="text location"><i class="fa fa-window-minimize" aria-hidden="true"></i>{{ elt.location }}</h4>    
+                        <p class="text description">{{ elt.description }}</p>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+    <!-- Fond du carrousel -->
+    <div class="app_bg">
+        <div class="app_bg_image">
+            <img src="https://source.unsplash.com/Z8dtTatMVMw" alt=""/>
+        </div>
+    </div>
+</div>

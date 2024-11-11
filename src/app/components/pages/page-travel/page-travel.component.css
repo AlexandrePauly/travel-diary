@@ -1,0 +1,494 @@
+/* -- Page de voyage -- */
+
+/* Header de la page de voyage */
+#header-travel{
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    justify-content: left;
+    align-items: center;
+    margin: auto;
+    color: white;
+    font-family: "Gill Sans", sans-serif;
+}
+
+/* Dates du voyage */
+#header-travel-date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.2vh 1.5vh;
+    width: max-content;
+    font-size: 1.7vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 0.4vh;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#header-travel-date:hover {
+    transform: scale(0.99);
+}
+
+#header-travel-date i{
+    margin-right: 1.5vh;
+    color: rgba(255, 217, 0, 0.7);
+    font-size: 2.3vh;
+}
+
+/* Destination du voyage */
+#header-travel-text h1{
+    font-size: 16vh;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Description du voyage */
+#header-travel-text h4{
+    font-size: 7vh;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Conteneur de boutons */
+#btn-container{
+    position: relative;
+    height: max-content;
+    width: max-content;
+}
+
+/* Bouton pour lancer un caroussel d'images */
+#btn-lets-go {
+    --btn-size: 15vh;
+    height: var(--btn-size);
+    width: var(--btn-size);
+    padding: 1vh 1.5vh 1vh 1.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 0.4vh solid rgba(255, 215, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#btn-lets-go:active {
+    transform: scale(0.95);
+}
+
+#btn-lets-go:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}
+
+/* svg du bouton */
+#btn-lets-go i {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+    font-size: 3vh;
+}
+
+#btn-lets-go:hover i {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+/* Texte du bouton */
+#btn-lets-go span {
+    display: block;
+    margin-left: 1vh;
+    transition: all 0.3s ease-in-out;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 3vh;
+}
+
+#btn-lets-go:hover span {
+    transform: translateX(5em);
+    opacity: 0;
+}
+
+/* Bouton pour accéder à la map */
+#btn-map{
+    position: absolute;
+    top: -1vh;
+    right: -1vh;
+    z-index: 0;
+    padding: 1vh;
+    border: 0.2vh solid rgba(255, 215, 0, 0.7);
+    border-radius: 100%;
+    transform: scale(1, -1);
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: all 0.5s;
+    font-size: 3vh;
+}
+
+#btn-map:hover{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+/* Contenu de la page de voyage */
+#content-travel{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: center;
+    align-items: top;
+    width: calc(100% - 10vw);
+    height: auto;
+    padding: 6vh 5vw;
+    margin: 0;
+    background-color: rgba(32, 47, 38, 0.9);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+}
+
+/* Partie gauche du contenu - Menu */
+#content-travel-left-col{
+    padding: 3vh;
+    margin-right: 8vh;
+}
+
+.elt-travel{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0 3vh 1.5vh 0;
+    margin-bottom: 3vh;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s;
+}
+
+.elt-travel:last-child{
+    margin-bottom: 0;
+}
+
+.elt-travel:hover{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+}
+
+.elt-travel h4{
+    font-family: "Gill Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 3em;
+    margin: 0;
+    font-weight: 300;
+}
+
+.elt-travel p{
+    font-family: "Gill Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 1em;
+    margin-right: 1.5vh;
+}
+
+/* Partie droite du contenu - Tableau du contenu */
+#content-travel-right-col{
+    width: auto;
+}
+
+.tab-info-travel{
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.tab-info-travel:not(.tab-info-travel-1){
+    display: none;
+}
+
+/* Header du tableau */
+.tab-header{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 4.5vh 6vh;
+    border-bottom: 0.3vh solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1vh 1vh 0 0;
+}
+
+.tab-header ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+.tab-header li{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0 4vh;
+    border-right: 0.3vh solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-header li:first-child{
+    padding-left: 0;
+}
+
+.tab-header li:last-child{
+    padding-right: 0;
+    border-right: none;
+}
+
+.tab-header a{
+    font-family: "Gill Sans", sans-serif;
+    color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 2.3vh;
+}
+
+.tab-header a:hover{
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Contenu du tableau */
+.tab-content{
+    border-radius: 0 0 1vh 1vh;
+    background-color: rgba(42, 68, 53, 0.2);
+    padding: 5vh;
+    font-family: "Gill Sans", sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+}
+
+.tab-content .tab-content-slider h2{
+    margin: 0;
+    font-size: 2em;
+}
+
+.tab-content .elt2 h2{
+    margin-bottom: 30px;
+}
+
+.tab-content .tab-content-slider p{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1em;
+}
+
+.tab-content-slider:nth-child(2){
+    display: none;
+}
+
+.tab-content-slider:nth-child(3){
+    display: none;
+}
+
+.div-content{
+    width: 100%;
+    height: 100%;
+}
+
+.div-content{
+    overflow: hidden;
+}
+
+.tab-content .button {
+    display: flex;
+    margin: auto;
+    font-size: 17px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgb(56, 56, 56) 0%, rgb(36, 36, 36) 66%, rgb(41, 41, 41) 100%);
+    color: rgb(218, 218, 218);
+    border: none;
+    padding: 2px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: max-content;
+}
+
+.tab-content .button span {
+    border-radius: 10px;
+    padding: 0.8em 1.3em;
+    padding-right: 1.2em;
+    text-shadow: 0px 0px 20px #4b4b4b;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    transition: all 0.3s;
+    background-color: rgb(29, 29, 29);
+    background-image: radial-gradient(at 95% 89%, rgb(15, 15, 15) 0px, transparent 50%), radial-gradient(at 0% 100%, rgb(17, 17, 17) 0px, transparent 50%), radial-gradient(at 0% 0%, rgb(29, 29, 29) 0px, transparent 50%);
+}
+
+.tab-content .button:hover span {
+    background-color: rgb(26, 25, 25);
+}
+
+.tab-content .button-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-conic-gradient(rgb(48, 47, 47) 0.0000001%, rgb(51, 51, 51) 0.000104%) 60% 60%/600% 600%;
+    filter: opacity(10%) contrast(105%);
+    -webkit-filter: opacity(10%) contrast(105%);
+}
+
+.tab-content .button svg {
+    width: 15px;
+    height: 15px;
+}
+
+.actived{
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Fond d'écran de la page de voyage */
+.app_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.app_bg::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.app_bg_image{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    transform: translate (-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    overflow: hidden;
+}
+
+.app_bg_image img{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* -- Caroussel des différents voyages -- */
+
+/* Bouton pour fermer le caroussel lorsqu'il est affiché */
+.close {
+    position: fixed;
+    z-index: 5;
+    right: 4.5vh;
+    top: 4.5vh;
+    width: 4.5vh;
+    height: 4.5vh;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.close:active {
+    transform: scale(0.9);
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 2.1vh;
+    content: '';
+    height: 4.5vh;
+    width: 0.3vh;
+    background-color: rgba(245, 245, 245, 0.7);
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+/* Animations pour afficher et cacher le caroussel */
+.app-carrousel-animating {
+    animation: fadeInOut 0.5s ease-in-out;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.app-close-animating {
+    animation: fadeOut 0.5s ease-in-out;
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Affichage en grand des images */
+#imgExpand{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 3000;
+}
+
+#imgExpand img{
+    border: solid 5px var(--white);
+    border-radius: 20px;
+    width: auto;
+    max-height: 90%;
+}
+
+#imgExpand.visible {
+    opacity: 1;
+    visibility: visible;
+}

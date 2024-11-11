@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#bg-form-connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.form-box{
+    position: relative;
+    width: 400px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    font-family: 'poppins', sans-serif;
+}
+
+h1{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+/* Login */
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
+}
+
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus ~ label, input:valid ~ label{
+    top: -5px;
+}
+
+.inputbox input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: white;
+}
+
+.inputbox .icon-container{
+    position: absolute;
+    right: 8px;
+    top: 20px;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+.inputbox i{
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Oublie du mot de passe */
+.forget{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: white;
+    display: flex;
+    justify-content: center;   
+}
+
+.forget a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forget a:hover{
+    text-decoration: underline;
+}
+
+/* Boutton pour s'identifier */
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+button:hover{
+    background: #ffffffa4;
+    transition: all 0.4s ease;
+}
+
+/* S'enregistrer */
+.register{
+    font-size: 0.9em;
+    color: white;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register a:hover{
+    text-decoration: underline;
+}
+
+/* Fond d'écran de la page de connexion */
+.app_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.app_bg::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.app_bg_image{
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    transform: translate (-50%, -50%) translateX(var(--image-translate-offset, 0));
+    width: 100%;
+    height: 100%;
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    overflow: hidden;
+}
+
+.app_bg_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#content-wrapper {
+    visibility: hidden;
+  }
+  

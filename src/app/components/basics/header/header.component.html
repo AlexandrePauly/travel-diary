@@ -1,0 +1,48 @@
+<!-- Header de l'application -->
+<nav id="header">
+    <div id="menu">
+        <!-- Burger/Croix pour ouvrir/fermer le menu -->
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!-- Menu -->
+        <div id="menu-content">
+            <!-- Language de l'application -->
+            <div class="language-btn">
+                <img *ngIf="!windowSize" src="../../../../assets/img/globe_white.png">
+                <img *ngIf="windowSize" src="../../../../assets/img/globe_black.png">
+                <a *ngIf="!windowSize" class="language" [style.color]="languageService.activedLanguage() === 'fr' ? 'white' : 'rgba(255, 255, 255, 0.5)'" [style.cursor]="languageService.activedLanguage() === 'fr' ? 'default' : 'pointer'" (click)="languageService.changeLanguage('fr')">FR</a>
+                <a *ngIf="windowSize" class="language" [style.color]="languageService.activedLanguage() === 'fr' ? 'black' : 'rgba(0, 0, 0, 0.7)'" [style.cursor]="languageService.activedLanguage() === 'fr' ? 'default' : 'pointer'" (click)="languageService.changeLanguage('fr')">FR</a>
+                <a *ngIf="!windowSize" class="language" [style.color]="languageService.activedLanguage() === 'en' ? 'white' : 'rgba(255, 255, 255, 0.5)'" [style.cursor]="languageService.activedLanguage() === 'en' ? 'default' : 'pointer'" (click)="languageService.changeLanguage('en')">EN</a>
+                <a *ngIf="windowSize" class="language" [style.color]="languageService.activedLanguage() === 'en' ? 'black' : 'rgba(0, 0, 0, 0.7)'" [style.cursor]="languageService.activedLanguage() === 'en' ? 'default' : 'pointer'" (click)="languageService.changeLanguage('en')">EN</a>
+            </div>
+
+            <!-- Éléments du menu -->
+            <nav class="menu menu-elt">
+                <ul>
+                    <li><a routerLink="" routerLinkActive="active">{{ languageService.activedLanguage() === 'fr' ? 'Accueil' : 'Home'}}</a></li>
+                    <li *ngIf="logService.isConnected() === 'false'"><a routerLink="/map" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carnet de voyages' : 'Travel diary'}}</a></li>
+                    <li *ngIf="logService.isConnected() === 'true'"><a routerLink="/login" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carnet de voyages' : 'Travel diary'}}</a></li>
+                    <!-- <li><a routerLink="/map" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carte du monde' : 'Carte du monde'}}</a></li> -->
+                    <li><a routerLink="/temp" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'À propos': 'About'}}</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton de connexion et d'inscription de l'application -->
+            <div *ngIf="logService.isConnected() === 'true'" class="login-btn menu-elt">
+                <ul>
+                    <li><a routerLink="/login" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Se connecter': 'Sign in'}}</a></li>
+                    <li><a routerLink="/registration" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'S\'enregistrer': 'Sign up'}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton du compte utilisateur de l'application -->
+    <i *ngIf="logService.isConnected() === 'false'" (click)="showPopupService.showPopup()" class="fa fa-user-circle-o account-btn" aria-hidden="true"></i>
+</nav>
+
+<!-- Popup pour gérer le compte -->
+<app-popup-log></app-popup-log>

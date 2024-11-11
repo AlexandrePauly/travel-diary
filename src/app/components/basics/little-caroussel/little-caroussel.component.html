@@ -1,0 +1,17 @@
+<!-- Petit caroussel -->
+<div class="recipe-container">
+    <div class="swiper">
+        <!-- Contenu du caroussel -->
+        <div class="swiper-wrapper">
+            <div *ngFor="let elt of caroussel" class="swiper-slide post">
+                <img class="post-img" [src]="elt.img" alt="recipe" />
+                <h1>{{ elt.destination }}</h1>
+                <h2>{{ elt.location }}</h2>
+                <p>{{ elt.description }}</p>
+            </div>
+        </div>
+        
+        <!-- Scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+</div>

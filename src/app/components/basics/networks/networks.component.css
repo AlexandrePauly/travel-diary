@@ -1,0 +1,82 @@
+a {
+    color: inherit;
+}
+
+.networks-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  pointer-events: none;
+
+  --font-family: "Poppins", sans-serif;
+  --font-size: 10px;
+  --font-color: white;
+  --font-color-hover: rgba(255, 255, 255, 0.5);
+}
+
+.networks-container:hover {
+  pointer-events: auto;
+}
+
+.networks-container h4 {
+  font-size: 2vh;
+  cursor: pointer;
+  pointer-events: auto;
+  color: var(--font-color);
+  margin-right: 2vh;
+}
+
+.line {
+  width: 15rem;
+  height: 3px;
+  background-color: var(--font-color);
+  margin-left: auto;
+  margin-right: 2rem;
+  transform: scaleX(0.2);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.networks-container:hover .line {
+  transform: scaleX(1);
+}
+.networks-list {
+  display: flex;
+  list-style: none;
+}
+.networks-item {
+  margin-inline: 2vh;
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+  color: var(--font-color);
+}
+.networks-item:nth-child(odd) {
+  transform: translateY(5rem);
+}
+.networks-item:nth-child(even) {
+  transform: translateY(-5rem);
+}
+.networks-container:hover .networks-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+.networks-link {
+  font-size: 3vh;
+}
+.networks-link i {
+  transition: color 0.5s;
+}
+.networks-link:hover i.fa-facebook {
+  color: #3b5998;
+}
+.networks-link:hover i.fa-twitter {
+  color: #1da1f2;
+}
+.networks-link:hover i.fa-google {
+  color: #dd4b39;
+}
+.networks-link:hover i.fa-instagram {
+  color: #E1306C;
+}
+.networks-link:hover i.fa-linkedin {
+  color: #0077b5;
+}

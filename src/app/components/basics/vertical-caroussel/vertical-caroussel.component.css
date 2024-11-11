@@ -1,0 +1,151 @@
+/* Caroussel vertical */
+.swiper {
+    height: 80vh;
+    --background-color: rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5em 0.5em -0.5em black;
+    --font-family: "Gill Sans", sans-serif;
+    --font-color: white;
+    --font-color-hover: rgba(255, 255, 255, 0.5);
+}
+
+/* Éléments du caroussel */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 8vh;
+    height: 100%;
+    width: 80%;
+    color: var(--font-color);
+    font-family: var(--font-family);
+}
+
+/* Contenu du caroussel */
+.swiper-slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: baseline;
+    height: calc(100% - 5.7vh);
+    width: 100%;
+    padding: 0.7vh;
+    background-color: var(--background-color);
+    backdrop-filter: blur(0.5vh);
+    box-shadow: var(--box-shadow);
+    border-radius: 1vh;
+    overflow: hidden;
+}
+
+.swiper-slide-content img {
+    display: block;
+    width: 100%;
+    height: 65%;
+    object-fit: cover;
+    border-radius: 0.5vh;
+}
+
+.swiper-slide-content-text{
+    text-align: left;
+    padding: 2vh 1vh;
+}
+
+.swiper-slide-content-text>*{
+    margin: 0;
+}
+
+.swiper-slide-content-text p{
+    font-size: 1.8vh;
+}
+
+.swiper-slide-content-text h4{
+    font-size: 2.5vh;
+}
+
+/* Bouton pour rediriger vers la page du voyage */
+.swiper-slide button{
+    position: absolute;
+    bottom: 0;
+    right: 2.5vh;
+    height: 5.5vh;
+    width: 17vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.5vh);
+    border-radius: 0.5vh;
+    border: none;
+    cursor: pointer;
+    color: var(--font-color);
+    transition: all 0.5s;
+    box-shadow: var(--box-shadow);
+    font-size: 2vh;
+}
+
+.swiper-slide button:hover{
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.swiper-slide button:active{
+    transform: scale(0.9);
+}
+
+/* Bouton pour naviguer dans le caroussel */
+.button{
+    position: absolute;
+    top: 5vh;
+    right: var(--swiper-pagination-left, auto) !important;
+    left: var(--swiper-pagination-right, -1vh) !important;
+    z-index: 20;
+    transform: rotate(90deg);
+    color: var(--font-color);
+    font-size: 2.5vh;
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 5vh;
+    width: auto;
+}
+
+.button:hover{
+    transform: rotate(90deg) scale(1.1);
+    color: var(--font-color-hover);
+}
+
+.button:active{
+    transform: rotate(90deg) scale(0.9);
+}
+
+.button-next{
+    top: unset;
+    bottom: 5vh;
+}
+
+/* Pagination du caroussel */
+.swiper-pagination {
+    --swiper-theme-color: var(--font-color);
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+}
+
+::ng-deep .swiper-pagination-bullet {
+    width: 1vh !important;
+    height: 1vh !important;
+}
+
+.swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
+    right: var(--swiper-pagination-left, auto) !important;
+    left: var(--swiper-pagination-right, 1vh) !important;
+}
+
+::ng-deep .swiper-pagination-bullet-active {
+    transform: scale(1.2) !important;
+}
+
+::ng-deep .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    transform: scale(0.8) !important;
+    opacity: 0.5 !important;
+}
+
+::ng-deep .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: var(--swiper-pagination-bullet-vertical-gap, 0.9vh) 0 !important;
+}

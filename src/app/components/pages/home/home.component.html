@@ -1,0 +1,26 @@
+<div>
+  <!-- Menu du header -->
+  <app-header></app-header>
+
+  <!-- Informations sur l'application -->
+  <div class="text-container">
+    <img src="../../../../assets/img/pngegg2.png" alt="">
+    <h1>Look<br>All my travel</h1>
+    <p>{{languageService.activedLanguage() === 'fr' ? 'All my travel est bien plus qu\'une simple application de voyage ; c\'est votre compagnon ultime pour immortaliser vos aventures autour du monde. Affichez toutes vos photos de voyage, marquez vos moments préférés, et revivez vos souvenirs à travers des caroussels captivants. Explorez votre propre carte du monde interactive, mettant en lumière chaque destination que vous avez explorée.': 'All my travel is much more than just a travel app; it\'s your ultimate companion to immortalize your adventures around the world. View all your travel photos, mark your favorite moments, and relive your memories through captivating carousels. Explore your own interactive world map, highlighting every destination you\'ve explored.'}}</p>
+    <button *ngIf="logService.isConnected() === 'true'" routerLink="/login" routerLinkActive="active" class="button">{{languageService.activedLanguage() === 'fr' ? 'Commencer': 'Start now'}} <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    <button *ngIf="logService.isConnected() === 'false'" routerLink="/travel" routerLinkActive="active" class="button">{{languageService.activedLanguage() === 'fr' ? 'Commencer': 'Start now'}} <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+
+  <!-- Caroussel vertical -->
+  <app-vertical-caroussel [caroussel]="travelsCards"></app-vertical-caroussel>
+
+  <!-- Lien des réseaux sociaux -->
+  <!-- <app-networks></app-networks> -->
+</div>
+
+<!-- Fond d'écran de la page d'accueil -->
+<div class="app_bg">
+  <div class="app_bg_image">
+      <img src="../../../../assets/img/form-log/bg8.jpg" alt="">
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!-- Affichage d'un voyage -->
+<div *ngFor="let travel of travels, let i = index">
+    <ng-container *ngIf="i <= 2">
+        <div class="destination" style="background-image: url({{travel.background}})">
+            <div class="content-destination">
+                <!-- Année et destination du voyage -->
+                <h2>{{ travel.startDate.getFullYear() }} - {{ travel.title }}</h2>
+
+                <!-- Description du voyage -->
+                <p>{{ travel.desc }}</p>
+
+                <!-- Drapeau du pays -->
+                <img class="flag" [src]="travel.flag" alt="">
+
+                <!-- Bouton pour consulter le détail du voyage -->
+                <button class="go-on">Consulter</button>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="i == 3">
+        <div class="other-content">
+            <button routerLink="travel" routerLinkActive="active">More</button>
+        </div>
+    </ng-container>
+</div>

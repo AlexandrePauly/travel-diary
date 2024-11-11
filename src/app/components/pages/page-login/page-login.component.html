@@ -1,0 +1,61 @@
+<!-- Formulaire de connexion -->
+<div id="bg-form-connexion">
+    <div class="form-box">
+        <div class="form-value">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                <h1>{{languageService.activedLanguage() === 'fr' ? 'Connexion': 'Sign in'}}</h1>
+                
+                <!-- Email de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                    <input class="mail" type="email" required>
+                    <label for="">{{languageService.activedLanguage() === 'fr' ? 'Adresse e-mail': 'E-mail address'}}</label>
+                </div>
+    
+                <!-- Mot de passe de la personne -->
+                <div class="inputbox">
+                    <div class="icon-container"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    <input class="password" type="password" required>
+                    <label for="">{{languageService.activedLanguage() === 'fr' ? 'Mot de passe': 'Password'}}</label>
+                </div>
+    
+                <!-- Oublie du mot de passe -->
+                <div class="forget">
+                    <a>{{languageService.activedLanguage() === 'fr' ? 'Mot de passe oublié ?': 'Forgot your password ?'}}</a>
+                </div>
+    
+                <!-- Boutton pour s'identifier -->
+                <button type="submit">{{languageService.activedLanguage() === 'fr' ? 'Connexion': 'Sign in'}}</button>
+    
+                <!-- S'enregistrer -->
+                <div class="register">
+                    <a routerLink="/registration" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Créer un compte': 'Join'}}</a>
+                </div>
+
+                <!-- Page d'accueil -->
+                <div class="register">
+                    <a routerLink="" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Page d\'accueil': 'Home'}}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Fond d'écran de la page de voyage -->
+<div class="app_bg">
+    <div class="app_bg_image">
+        <img src="" alt=""/>
+    </div>
+</div>
+
+<!-- Loader de chargement -->
+<dx-load-panel
+  height="100vh"
+  width="100vw"
+  [message]="languageService.activedLanguage() === 'fr' ? 'Connexion...': 'Login...'"
+  [visible]="loaderVisibility" 
+  [showIndicator]="true"
+  [showPane]="false"
+  [shading]="false"
+>
+</dx-load-panel>

@@ -1,0 +1,26 @@
+<!-- Caroussel vertical -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <!-- Éléments du caroussel -->
+        <div *ngFor="let elt of caroussel" class="swiper-slide">
+            <!-- Contenu du caroussel -->
+            <div class="swiper-slide-content">
+                <img [src]="elt.background" alt="">
+                <div class="swiper-slide-content-text">
+                    <p>{{ elt.desc }}</p>
+                    <h4>{{ elt.title }}</h4>
+                </div>
+            </div>
+
+            <!-- Bouton pour rediriger vers la page du voyage -->
+            <button routerLink="/travel/{{elt.link}}" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Consulter': 'Check'}}</button>
+        </div>
+    </div>
+
+    <!-- Bouton pour naviguer dans le caroussel -->
+    <img class="button button-prev" src="../../../../assets/img/arrow3.png" alt="">
+    <img class="button button-next" src="../../../../assets/img/arrow2.png" alt="">
+
+    <!-- Pagination du caroussel -->
+    <div class="swiper-pagination"></div>
+</div>

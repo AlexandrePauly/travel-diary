@@ -1,0 +1,25 @@
+<!-- Popup pour gérer le compte -->
+<div id="popup" [style.display]="showPopupService.isVisible() ? 'grid' : 'none'">
+    <!-- Header de la popup -->
+    <header id="popup-header">
+        <!-- Icon pour fermer la popup -->
+        <i class="fa fa-times-circle-o" aria-hidden="true" (click)="showPopupService.hidePopup()"></i>
+
+        <!-- Texte de la popup -->
+        <h1>{{languageService.activedLanguage() === 'fr' ? 'Bonjour,': 'Hi,'}}</h1>
+        <h2>User !</h2>
+    </header>
+
+    <!-- Contenu de la popup -->
+    <main id="popup-content">
+        <!-- Éléménts de gestion du compte -->
+        <ul>
+            <li><i class="fa fa-pencil" aria-hidden="true"></i><a>{{languageService.activedLanguage() === 'fr' ? 'Mode créateur': 'Design mode'}}</a></li>
+            <li><i class="fa fa-cog" aria-hidden="true"></i><a>{{languageService.activedLanguage() === 'fr' ? 'Paramètres': 'Settings'}}</a></li>
+            <li (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i><a>{{languageService.activedLanguage() === 'fr' ? 'Se déconnecter': 'Log out'}}</a></li>
+        </ul>
+    </main>
+</div>
+
+<!-- Fond d'écran de la popup -->
+<div [style.display]="showPopupService.isVisible() ? 'grid' : 'none'" class="popup-bg"></div>

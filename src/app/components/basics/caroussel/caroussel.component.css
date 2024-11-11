@@ -1,0 +1,164 @@
+/* -- Carrousel -- */
+#bg-swiper{
+    position: fixed;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#swiper{
+    max-width: 80vw;
+    height: 80vh;
+    width: 100%;
+    padding: 7vh;
+}
+
+/* Contenu du caroussel */
+swiper-container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    --swiper-theme-color: rgba(245, 245, 245, 0.7) !important;
+    --swiper-navigation-size: 6.2vh !important;
+    cursor: grab;
+}
+
+/* Éléments du caroussel */
+swiper-slide{
+    background-position: center;
+    background-size: cover;
+    width: 22vw;
+    min-width: 42vh;
+    height: calc(80vh - 6vh);
+    bottom: -4vh;
+}
+
+/* Élément central du caroussel mis en avant en masquant les autres */
+.swiper-slide-visible::before, .swiper-slide-prev::before, .swiper-slide-next::before, .swiper-slide-shadow-right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    opacity: 0.5;
+}
+.swiper-slide-active::before {
+    background: transparent;
+    opacity: 1;
+}
+
+/* Affichage du texte de l'élément actif */
+.swiper-slide-active .info-container{
+    display: flex;
+}
+
+/* Image */
+swiper-slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -- Texte associé à l'image -- */
+.info-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000%;
+    height: 20%;
+    display: none; /* Texte caché par défaut */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 100%;
+}
+
+.info h1{
+    text-transform: uppercase;
+    font-size: 8vh;
+    margin: 0;
+}
+
+.info h4{
+    text-transform: uppercase;
+    font-size: 5vh;
+    margin: 0;
+    padding-bottom: 2vh;
+    display: flex;
+    border-bottom: 0.3vh solid white;
+    width: 14.2vh;
+}
+
+.info i{
+    margin: auto 4.2vh auto auto;
+    width: fit-content;
+    font-size: 5vh;
+}
+
+.info p{
+    font-size: 2.5vh;
+}
+
+/* Fond du carrousel */
+.app_bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh; 
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: -5;
+}
+
+.app_bg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.app_bg_image{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: translate (-50%, -50%) translateX(var(--image-translate-offset, 0));
+    width: 100%;
+    height: 100%;
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    overflow: hidden;
+}
+
+.app_bg_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

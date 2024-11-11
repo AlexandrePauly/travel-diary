@@ -1,0 +1,9 @@
+<!-- Swiper -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div *ngFor="let elt of caroussel" class="swiper-slide">
+            <img class="post-img" [src]="elt" alt="recipe" />
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>

@@ -1,0 +1,25 @@
+/* Styles pour les notifications de devextreme */
+::ng-deep .dx-toast-stack {
+    top: calc(100vh - 50px - 2vh) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Styles pour les loader de devextreme */
+::ng-deep .dx-overlay-wrapper {
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 5vh !important;
+    font-family: "Gill Sans", sans-serif !important;
+    animation: all 0.5s;
+    backdrop-filter: brightness(80%) blur(0.1vh) !important;
+}
+::ng-deep .dx-loadindicator {
+    width: 15vh !important;
+    height: 15vh !important;
+}
+::ng-deep .dx-loadindicator-icon .dx-loadindicator-segment {
+    width: 19% !important;
+    height: 30% !important;
+    background: white !important;
+}

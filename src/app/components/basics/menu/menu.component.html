@@ -1,0 +1,22 @@
+<!-- Menu -->
+<div>
+    <div id="content-menu">
+        <!-- Menu - Partie gauche -->
+        <nav class="menu menu-left">
+            <a routerLink="" routerLinkActive="active">{{ languageService.activedLanguage() === 'fr' ? 'Accueil' : 'Home'}}</a>
+            <a *ngIf="logService.isConnected() === 'false'" routerLink="/travel" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carnet de voyages' : 'Travel diary'}}</a>
+            <a *ngIf="logService.isConnected() === 'true'" routerLink="/login" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carnet de voyages' : 'Travel diary'}}</a>
+        </nav>
+
+        <!-- Menu - Bouton central -->
+        <div class='earth-btn-container'>
+            <div routerLink="" routerLinkActive="active" class="earth-btn"></div>
+        </div>
+
+        <!-- Menu - Partie droite -->
+        <nav class="menu menu-right">
+            <a routerLink="/map" routerLinkActive="active">{{languageService.activedLanguage() === 'fr' ? 'Carte du monde' : 'Carte du monde'}}</a>
+            <a>{{languageService.activedLanguage() === 'fr' ? 'À propos': 'About'}}</a>
+        </nav>
+    </div>
+</div>

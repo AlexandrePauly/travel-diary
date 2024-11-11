@@ -1,0 +1,2 @@
+<app-home *ngIf="logService.isConnected() === 'false'"></app-home>
+<app-map *ngIf="logService.isConnected() === 'true'"></app-map>
