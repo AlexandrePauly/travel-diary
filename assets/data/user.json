@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "a@a.com",
+      "mdp": "aa"
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "email": "jane@example.com",
+      "mdp": "aa"
+    }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "name": "Product A",
+      "price": 29.99
+    },
+    {
+      "id": 102,
+      "name": "Product B",
+      "price": 49.99
+    }
+  ],
+  "settings": {
+    "theme": "dark",
+    "language": "en"
+  }
+}
